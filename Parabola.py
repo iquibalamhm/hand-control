@@ -31,7 +31,11 @@ todayhighRight = np.loadtxt(os.path.sep.join([args.boundaries, 'highRight']), dt
 
 todaylowLeft = np.loadtxt(os.path.sep.join([args.boundaries, 'lowLeft']), dtype=int)
 todayhighLeft = np.loadtxt(os.path.sep.join([args.boundaries, 'highLeft']), dtype=int)
-
+import time
+import zmq
+context = zmq.Context()
+socket = context.socket(zmq.REP)
+socket.bind("tcp://*:5555")
 class DemoRope(App):
     #
     #
@@ -201,12 +205,24 @@ class DemoRope(App):
         textRect3 = text3.get_rect()
         textRect3.center = (300, 10)
         self.screen.blit(text3, textRect3)
+        
         if(len(self.list_hands)==1):
             if self.list_hands[0].state=='Closed':
                 game.draw.circle(self.screen, (0, 255, 0), self.list_hands[0].centerTriangle, 8, 0)
                 print('here')
             elif self.list_hands[0].state=='Open':
                 game.draw.circle(self.screen, (255, 0, 0), self.list_hands[0].centerTriangle, 8, 0)
+            message = socket.recv()
+            print("Received request: %s" % message)
+            #  Do some 'work'.
+            #  Try reducing sleep time to 0.01 to see how blazingly fast it communicates
+            #  In the real world usage, you just need to replace time.sleep() with
+            #  whatever work you want python to do, maybe a machine learning task?
+            #time.sleep(1)
+            #  Send reply back to client
+            #  In the real world usage, after you finish your work, send your output here
+            string = str(self.list_hands[0].centerTriangle[0])+','+str(self.list_hands[0].centerTriangle[1])
+            socket.send(string.encode())
         game.display.update()
 
     #
