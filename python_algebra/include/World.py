@@ -5,11 +5,11 @@
 # and simulation time steps), as well as manage all of the simulated objects in a single place.
 
 
-from Vector import *
-from Particle import *
-from Constraint import *
-from Composite import *
-from Material import *
+from include.Vector import *
+from include.Particle import *
+from include.Constraint import *
+from include.Composite import *
+from include.Material import *
 
 
 class World:

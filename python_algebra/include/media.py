@@ -40,7 +40,7 @@ class Hand:
       else:
         self.state = 'Undef'    
 class VideoClass:
-  def __init__(self,success, image):
+  def __init__(self,success, image,size):
       with mp_hands.Hands(
             min_detection_confidence=0.5,
             min_tracking_confidence=0.5) as hands:
@@ -52,6 +52,7 @@ class VideoClass:
             #Flip the image horizontally for a later selfie-view display, and convert
             # the BGR image to RGB.
             image = cv2.cvtColor(cv2.flip(image, 1), cv2.COLOR_BGR2RGB)
+            image = cv2.resize(image, size, interpolation = cv2.INTER_AREA)
             # To improve performance, optionally mark the image as not writeable to
             # pass by reference.
             image.flags.writeable = False

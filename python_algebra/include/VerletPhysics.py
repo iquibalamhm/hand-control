@@ -4,9 +4,9 @@
 # Rather than including all of the files below into your project, it's just one and done.
 
 
-from Vector import *
-from World import *
-from Particle import *
-from Constraint import *
-from Composite import *
-from Material import *
+from include.Vector import *
+from include.World import *
+from include.Particle import *
+from include.Constraint import *
+from include.Composite import *
+from include.Material import *

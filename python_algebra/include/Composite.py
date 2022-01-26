@@ -4,9 +4,9 @@
 # shape (soft-body).
 
 
-from Vector import *
-from Particle import *
-from Constraint import *
+from include.Vector import *
+from include.Particle import *
+from include.Constraint import *
 
 
 class Composite:
