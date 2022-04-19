@@ -1,25 +1,24 @@
 """Console script for python_algebra."""
 import argparse
-import sys
-
+import sys, os
+sys.path.append(os.path.dirname(__file__))
 # import the necessary packages
 import numpy as np
 import cv2
 from numpy import empty
 
-from include.HandClasses import *
+from HandClasses import *
 
 import pygame as game
 
-from include.AppUnity import *
-from include.VerletPhysics import *
-from include.Fits import *
-from include.Camera import *
+from AppUnity import *
+from VerletPhysics import *
+from Fits import *
+from Camera import *
 
-import os
 import pathlib
 
-from include.media import *
+from media import *
 
 import time
 import zmq

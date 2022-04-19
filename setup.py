@@ -41,6 +41,7 @@ setup(
     keywords='python_algebra',
     name='python_algebra',
     packages=find_packages(include=['python_algebra', 'python_algebra.*']),
+    package_data={'python_algebra':['*.py']},
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/iquibalamhm/python_algebra',

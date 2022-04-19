@@ -8,8 +8,8 @@
 
 import math
 
-from include.Vector import *
-from include.Material import *
+from Vector import *
+from Material import *
 
 
 class Particle:

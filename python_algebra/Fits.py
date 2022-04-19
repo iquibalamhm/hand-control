@@ -3,7 +3,6 @@ from numpy import angle, arange
 from pandas import read_csv
 from scipy.optimize import curve_fit
 from matplotlib import pyplot
-from include.Fits import *
 # define the true objective function
 PI = 3.141592653
 def objectiveOne(x, a, b):

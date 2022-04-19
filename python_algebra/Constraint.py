@@ -11,8 +11,8 @@
 
 import math
 
-from include.Vector import *
-from include.Particle import *
+from Vector import *
+from Particle import *
 
 
 class Constraint:
